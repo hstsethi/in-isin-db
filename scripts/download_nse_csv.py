@@ -1,6 +1,6 @@
 import requests
 
-def downloadEquityCsv(path="../data/equity.csv"):
+def downloadEquityCsv(path="../data/nse-isin.csv"):
     URL = "https://nsearchives.nseindia.com/content/equities/EQUITY_L.csv"
     HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
