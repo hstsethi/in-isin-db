@@ -6,7 +6,10 @@ def create_table(con):
 
 def main():
     DB_NAME = "../data/isin.db"
-    ISIN_CSV = "nse-isin.csv"
+    ISIN_CSV = "../data/nse-isin.csv"
     con = sqlite3.connect(DB_NAME)
     create_table(con)
+    csv = pd.read_csv(ISIN_CSV)
+    csv.to_sql("isin", con, index=False, if_exists="append")
+    con.close()
 main()
