@@ -2,7 +2,10 @@
 
 International Security Identification Number(ISIN) is as 12 digit, alphanumeric number that is used to uniquely identify a security.
 
-This is a CSV, SQL database of **all securities listed on NSE** along with their symbol, ISIN.
+This is a weekly-updated CSV, SQL database of **all securities listed on NSE** along with their symbol, ISIN. 
+ 
+
+## How does it work
 
 A fresh CSV is fetched from NSE during each run. All columns other than `ISIN NUMBER` and `SYMBOL` are dropped. These column names are further transformed to `isin`, `symbol`. The result is exported in data folder in CSV format. 
 
