@@ -2,14 +2,14 @@
 
 International Security Identification Number(ISIN) is as 12 digit, alphanumeric number that is used to uniquely identify a security.
 
-This is a weekly-updated CSV, SQL database of **all securities listed on NSE** along with their symbol, ISIN. 
+This is a weekly-updated CSV, SQL database of **all equities listed on NSE** along with their symbol, ISIN, name of company.
 
 You can download the latest database from the Github Actions tab. This method avoids cluttering Git history, releases section and does not require using any API keys or token.
  
 
 ## How does it work
 
-A fresh CSV is fetched from NSE during each run. All columns other than `ISIN NUMBER` and `SYMBOL` are dropped. These column names are further transformed to `isin`, `symbol`. The result is exported in data folder in CSV format. 
+A fresh CSV is fetched from NSE during each run. All columns other than `ISIN NUMBER`, "NAME OF COMPANY" and `SYMBOL` are dropped. These column names are further transformed to `isin`, `symbol`. The result is exported in data folder in CSV format. 
 
 If you wish to export it as SQLite, you can use the `isin_to_sql.py` script. The advantage of using this script over Pandas `to.sql()` is that it will explictly create a strict schema before exporting.
 
