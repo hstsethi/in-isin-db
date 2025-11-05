@@ -13,8 +13,8 @@ def create_table(con):
 
 
 def main():
-    DB_NAME = "../data/isin.db"
-    ISIN_CSV = "../data/nse-isin.csv"
+    DB_NAME = "../data/nse-equity.db"
+    ISIN_CSV = "../data/nse-equity.csv"
     con = sqlite3.connect(DB_NAME)
     create_table(con)
     csv = pd.read_csv(ISIN_CSV)

@@ -5,7 +5,7 @@ from download_nse_csv import download_nse_CSV
 def setup_SME():
     SME_list_dataset = download_nse_CSV(
         "../data/nse-sme.csv",
-        "https://nsearchives.nseindia.com/content/equities/SME_EQUITY_L.csv",
+        "https://nsearchives.nseindia.com/emerge/corporates/content/SME_EQUITY_L.csv"
     )
     clean_SME_dataset = clean_columns(SME_list_dataset)
     clean_SME_dataset.to_csv(SME_list_dataset, index=False)
