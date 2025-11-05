@@ -6,6 +6,7 @@ def create_table(con):
     con.execute("""CREATE TABLE IF NOT EXISTS isin (
     isin CHAR(12) PRIMARY KEY,
     symbol TEXT NOT NULL,
+    name_of_company TEXT NOT NULL,
     CHECK (length(isin) = 12)
     );""")
     con.commit()
