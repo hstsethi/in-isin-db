@@ -8,6 +8,10 @@ def clean_columns(sec_list_dataset):
     )  # some of them contain leading whitespace
     # SME columns already have _ 
 
-    sec = sec.rename(columns={"isin_number": "isin"})
+    sec = sec.rename(columns={
+        "isin_number": "isin",
+        "securityname": "name_of_company", # for ETF
+        "isinnumber": "isin" # for ETF
+    })
     sec = sec[["symbol", "isin", "name_of_company"]]
     return sec

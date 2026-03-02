@@ -20,10 +20,19 @@ def setup_equity():
     clean_dataset = clean_columns(sec_list_dataset)
     clean_dataset.to_csv(sec_list_dataset, index=False)
 
+def setup_ETF():
+    ETF_list_dataset = download_nse_CSV(
+        "../data/nse-etf.csv",
+        "https://nsearchives.nseindia.com/content/equities/eq_etfseclist.csv"
+    )
+    
+    clean_ETF_dataset = clean_columns(ETF_list_dataset)
+    clean_ETF_dataset.to_csv(ETF_list_dataset, index=False)
 
 def main():
     setup_SME()
     setup_equity()
+    setup_ETF()
     return 0
 
 
