@@ -2,7 +2,7 @@
 
 International Security Identification Number(ISIN) is as 12 digit, alphanumeric number that is used to uniquely identify a security.
 
-This is a weekly-updated CSV, SQL database of **all equities listed on NSE** along with their symbol, ISIN, name of company.
+This is a weekly-updated CSV, SQL database of **all equities listed on NSE** Equity and SME segment along with their symbol, ISIN, name of company.
 
 You can download the latest database from the Github Actions tab. This method avoids cluttering Git history, releases section and does not require using any API keys or token.
  
