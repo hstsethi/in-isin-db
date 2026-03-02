@@ -3,7 +3,7 @@ from download_nse_csv import downloadEquityCsv
 
 
 def main():
-    sec_list_dataset = downloadEquityCsv()
+    sec_list_dataset = downloadEquityCsv("https://nsearchives.nseindia.com/content/equities/EQUITY_L.csv", "nse-isin.csv")
     clean_dataset = cleanColumns(sec_list_dataset)
     clean_dataset.to_csv(sec_list_dataset, index=False)
     return 0
