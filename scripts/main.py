@@ -25,9 +25,9 @@ def setup_ETF():
         "../data/nse-etf.csv",
         "https://nsearchives.nseindia.com/content/equities/eq_etfseclist.csv"
     )
-    # The upstream CSV is in a not in UTF-8 format
-   # clean_ETF_dataset = clean_columns(ETF_list_dataset)
-   # clean_ETF_dataset.to_csv(ETF_list_dataset, index=False)
+    # The upstream CSV is in Windows 1252, not UTF-8
+    clean_ETF_dataset = clean_columns(ETF_list_dataset, "Windows-1252")
+    clean_ETF_dataset.to_csv(ETF_list_dataset, index=False, encoding="utf-8")
 
 def main():
     setup_SME()
