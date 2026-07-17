@@ -15,11 +15,10 @@ def create_table(con):
 def main():
     DB_NAME = "../data/nse-equity.db"
     ISIN_CSV = "../data/nse-equity.csv"
-    con = sqlite3.connect(DB_NAME)
-    create_table(con)
-    csv = pd.read_csv(ISIN_CSV)
-    csv.to_sql("isin", con, index=False, if_exists="append")
-    con.close()
+    with sqlite3.connect(DB_NAME) as con:
+        create_table(con)
+        csv = pd.read_csv(ISIN_CSV)
+        csv.to_sql("isin", con, index=False, if_exists="append")
 
 
 main()
