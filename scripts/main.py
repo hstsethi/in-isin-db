@@ -1,6 +1,6 @@
 from clean_nse_csv import clean_columns
 from download_nse_csv import download_nse_CSV
-
+from pathlib import Path
 
 def setup_SME():
     SME_list_dataset = download_nse_CSV(
@@ -30,6 +30,8 @@ def setup_ETF():
     clean_ETF_dataset.to_csv(ETF_list_dataset, index=False, encoding="utf-8")
 
 def main():
+    
+-   Path("../data").mkdir(parents=True, exist_ok=True)
     setup_SME()
     setup_equity()
     setup_ETF()
