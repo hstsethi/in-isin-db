@@ -1,7 +1,9 @@
+from pathlib import Path
 from download_nse_csv import download_nse_CSV
 
 
 def main():
+    Path("../data").mkdir(parents=True, exist_ok=True)
     download_nse_CSV(
         "../data/nse-sme.csv",
         "https://nsearchives.nseindia.com/emerge/corporates/content/SME_EQUITY_L.csv",
