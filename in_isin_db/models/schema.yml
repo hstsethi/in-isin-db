@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: nse
+    schema: main
+    tables:
+      - name: equity
+      - name: sme
+      - name: etf
+
+models:
+  - name: stg_equity 
+    description: "Stage equity dataset"
+    

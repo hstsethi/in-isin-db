@@ -9,11 +9,7 @@ You can download the latest database from the Github Actions tab. This method av
 
 ## How does it work
 
-A fresh CSV is fetched from NSE during each run. All columns other than `ISIN NUMBER`, `NAME OF COMPANY` and `SYMBOL` are dropped. These column names are further transformed to `isin`, `symbol`. The result is exported in data folder in CSV format. 
-
-The `isin_to_sql.py` script can be used to export to SQL. The advantage of using this script over Pandas `to.sql()` is that it will explictly create a strict schema before exporting.
-
-There are some other databases on Github. But most of them are outdated, scrapped/fetched from a non-free service, store huge CSVs in Git repo, and are bloated with lot of other unecessary information.
+This project has been completely refractored to **completely remove Python ecosystem**. Everything now happens via DuckDB and DBT. For old code see the `python` branch.
 
 ## Use Case
 
