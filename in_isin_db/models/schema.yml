@@ -8,7 +8,3 @@ sources:
       - name: sme
       - name: etf
 
-models:
-  - name: stg_equity 
-    description: "Stage equity dataset"
-    

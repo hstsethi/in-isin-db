@@ -1,0 +1,13 @@
+in_isin_db:
+  outputs:
+    dev:
+      type: duckdb
+      path: ../data/isin.duckdb
+      threads: 1
+
+    prod:
+      type: duckdb
+      path: ../data/isin.duckdb
+      threads: 4
+
+  target: dev

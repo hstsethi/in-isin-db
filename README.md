@@ -9,7 +9,9 @@ You can download the latest database from the Github Actions tab. This method av
 
 ## How does it work
 
-This project has been completely refractored to **completely remove Python ecosystem**. Everything now happens via DuckDB and DBT. For old code see the `python` branch.
+This project has been completely refractored to **completely remove Python, Sqlite ecosystem**. Everything now happens via DuckDB and DBT. It fetches the CSV from NSE directly into DuckDB. Slects only required columns, cleans it, and saves the table. There are no intermediary CSV files, ``CREATE TABLE``` boilerplate, no loading via Python then cleaning via DBT. 
+
+For old code see the `python` branch.
 
 ## Use Case
 
