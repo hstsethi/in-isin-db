@@ -2,18 +2,19 @@
 
 International Security Identification Number(ISIN) is as 12 digit, alphanumeric number that is used to uniquely identify a security.
 
-This is a weekly-updated CSV, SQL database of **all equities listed on NSE** Equity, ETF and SME segment along with their symbol, ISIN, name of company.
+This is a weekly-updated CSV, DuckDB database of **all equities listed on NSE** Equity, ETF and SME segment along with their symbol, ISIN, name of company.
 
-You can download the latest database from the Github Actions tab. This method avoids cluttering Git history, releases section and does not require using any API keys or token.
+You can download the latest database from the [Github Actions tab](github.com/hstsethi/in-isin-db/actions) artifact section. This method avoids cluttering Git history, releases section and does not require using any API keys or token.
  
 
 ## How does it work
 
-This project has been completely refractored to **completely remove Python, Sqlite ecosystem**. Everything now happens via DuckDB and DBT. It fetches the CSV from NSE directly into DuckDB. Slects only required columns, cleans it, and saves the table. There are no intermediary CSV files, ``CREATE TABLE``` boilerplate, no loading via Python then cleaning via DBT. 
+This project has been completely refactored to **completely remove Python, SQLite ecosystem**. Everything now happens via DuckDB and DBT. It fetches the CSV from NSE directly into DuckDB. Selects only required columns, cleans it, saves the table, and via post-hook exports to CSV. There are no intermediary CSV files, `CREATE TABLE` `COPY TO` boilerplate, no loading via Python then cleaning via DBT. 
 
-For old code see the `python` branch.
+For old code see the [python](https://github.com/hstsethi/in-isin-db/tree/python) branch.
 
 ## Use Case
+
 
 - ISIN to Symbol Mapping
 
@@ -25,3 +26,6 @@ There are some alternatives OpenFIGI API, or converting company name columns to 
 
 Especially if you are working from the official disclosure documents. See an example in the parent project [Fund Fundamental Analysis Tools(FFAT)](https://github.com/hstsethi/ffat).
 
+- Number of companies named after a state
+
+For example, see [this gist](https://gist.github.com/hstsethi/53ac47c2e2f9bf6824e01ce22fca8735).
