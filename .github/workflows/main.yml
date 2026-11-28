@@ -1,13 +1,14 @@
 name: Refresh NSE ISIN dataset
+
 permissions:
   contents: write
 
 on:
-  push: 
+  push:
   schedule:
-    # Every Monday at 02:00 UTC
+    # Every Monday at 02:00 UTC
     - cron: '0 2 * * 1'
-    
+
 jobs:
   run-main:
     runs-on: ubuntu-latest
@@ -21,23 +22,26 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'  
+          python-version: '3.11'
+
       - name: Create Data dir
-        run: mkdir data # DBT by itself will create the db then.
+        run: mkdir -p data # DBT by itself will create the db then.
+
       - name: Install dependencies
         run: |
           python -m pip install dbt-duckdb
+
       - name: Run DBT
         run: cd in_isin_db && dbt run
+
       - name: Zip data
         run: zip -r nse-isin-data.zip data/
 
       - name: Publish latest data
-      uses: softprops/action-gh-release@v2
-      with:
-      tag_name: latest
-      name: nse-isin-data
-      files: nse-isin-data.zip
-      overwrite_files: true
-      make_latest: true
-
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: NSE ISIN data
+          files: nse-isin-data.zip
+          overwrite_files: true
+          make_latest: true
