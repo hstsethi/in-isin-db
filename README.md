@@ -4,8 +4,9 @@ International Security Identification Number(ISIN) is as 12 digit, alphanumeric 
 
 This is a weekly-updated CSV, DuckDB database of **all securities listed on NSE** Equity, ETF and SME segment along with their symbol, ISIN, name of company.
 
-You can download the latest database from the [Github Actions tab](https://github.com/hstsethi/in-isin-db/actions) artifact section. This method avoids cluttering Git history, releases section and does not require using any API keys or token.
- 
+You can download the [latest data from here](https://github.com/hstsethi/in-isin-db/releases/latest/download/nse-isin-data.zip). This URL always points to the latest release.
+
+
 
 ## How does it work
 
@@ -13,6 +14,8 @@ This project has been completely refactored to **completely remove Python, SQLit
 
 For old code see the [python](https://github.com/hstsethi/in-isin-db/tree/python) branch.
 
+~~You can download the latest database from the [Github Actions tab](https://github.com/hstsethi/in-isin-db/actions) artifact section. This method avoids cluttering Git history, releases section and does not require using any API keys or token.~~ But it required being logged into Github to download. I have [raised an issue regarding it](https://github.com/orgs/community/discussions/214200). 
+ 
 ## Use Case
 
 
