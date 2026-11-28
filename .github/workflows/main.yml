@@ -33,8 +33,8 @@ jobs:
         run: zip -r nse-isin-data.zip data/
 
       - name: Publish latest data
-    uses: softprops/action-gh-release@v2
-    with:
+      uses: softprops/action-gh-release@v2
+      with:
       tag_name: latest
       name: nse-isin-data
       files: nse-isin-data.zip
