@@ -1,4 +1,6 @@
 name: Refresh NSE ISIN dataset
+permissions:
+  contents: write
 
 on:
   push: 
@@ -27,8 +29,15 @@ jobs:
           python -m pip install dbt-duckdb
       - name: Run DBT
         run: cd in_isin_db && dbt run
-      - name: Upload data as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: nse-isin-data
-          path: data/
+      - name: Zip data
+        run: zip -r nse-isin-data.zip data/
+
+      - name: Publish latest data
+    uses: softprops/action-gh-release@v2
+    with:
+      tag_name: latest
+      name: nse-isin-data
+      files: nse-isin-data.zip
+      overwrite_files: true
+      make_latest: true
+
